@@ -1,0 +1,123 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  DomainName:
+    Description: Domain name for the frontend app
+    Type: String
+  CertificateArn:
+    Description: ACM Certificate ARN to use with CloudFront
+    Type: String
+  HostedZoneId:
+    Description: Hosted ZoneId for the DNS name of the app in Route53
+    Type: String
+  CloudfrontHostedZoneId:
+    Description: Hosted ZoneId for CloudFront DNS
+    Type: String
+
+Description: "Frontend S3 webapp"
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      #      AccessControl: PublicRead
+      BucketName: !Ref DomainName
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: ObjectWriter
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      WebsiteConfiguration:
+        ErrorDocument: error.html
+        IndexDocument: index.html
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action: s3:GetObject
+            Effect: Allow
+            Resource: !Join ['', [!GetAtt S3Bucket.Arn, '/*']]
+            Principal: '*'
+
+  FrontEndAppDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases:
+          - !Ref DomainName
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertificateArn
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+        Origins:
+          - DomainName:
+              Fn::Join:
+                - ""
+                - - !Ref S3Bucket
+                  - "."
+                  - "s3-website-"
+                  - !Ref AWS::Region
+                  - "."
+                  - "amazonaws.com"
+            Id: BlogFrontEnd
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
+        Enabled: true
+        CacheBehaviors:
+          - AllowedMethods:
+              - DELETE
+              - GET
+              - HEAD
+              - OPTIONS
+              - PATCH
+              - POST
+              - PUT
+            PathPattern: /*
+            TargetOriginId: BlogFrontEnd
+            ViewerProtocolPolicy: redirect-to-https
+            ForwardedValues:
+              QueryString: 'true'
+              Cookies:
+                Forward: none
+
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - DELETE
+            - GET
+            - HEAD
+            - OPTIONS
+            - PATCH
+            - POST
+            - PUT
+          TargetOriginId: BlogFrontEnd
+          ForwardedValues:
+            QueryString: 'true'
+            Cookies:
+              Forward: none
+          ViewerProtocolPolicy: redirect-to-https
+
+  WebsiteDNSName:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      RecordSets:
+        - Name: !Ref DomainName
+          Type: A
+          AliasTarget:
+            HostedZoneId: !Ref CloudfrontHostedZoneId
+            DNSName: !GetAtt [FrontEndAppDistribution, DomainName]
+
+Outputs:
+  FrontendBucketName:
+    Description: Name of the bucket
+    Value: !Ref S3Bucket
+  CloudFrontDistribution:
+    Description: Cloudfront DNS name
+    Value: !GetAtt [FrontEndAppDistribution, DomainName]
+

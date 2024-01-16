@@ -1,0 +1,18 @@
+[
+  {
+    "ParameterKey": "DomainName",
+    "ParameterValue": "blog.k6sandeep.com"
+  },
+  {
+    "ParameterKey": "CertificateArn",
+    "ParameterValue": "arn:aws:acm:us-east-1:779574454656:certificate/6725ab5a-8f95-42a6-8e55-5cbc1d2ee570"
+  },
+  {
+    "ParameterKey": "HostedZoneId",
+    "ParameterValue": "Z05093165SS7MHO0JP43"
+  },
+  {
+    "ParameterKey": "CloudfrontHostedZoneId",
+    "ParameterValue": "Z2FDTNDATAQYW2"
+  }
+]
