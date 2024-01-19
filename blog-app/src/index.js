@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import Blog from "./Blog";
-import Root from "./Root";
+import './CSS/index.css';
+import App from './Components/App';
+import Blog from "./Components/Blog";
+import Root from "./Components/Root";
 import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter, Router, RouterProvider} from 'react-router-dom';
-import AboutMe from "./AboutMe";
-import Contact from "./Contact";
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import AboutMe from "./Components/AboutMe";
+import Contact from "./Components/Contact";
+import BlogPost from "./Components/BlogPost";
 
 const router = createBrowserRouter([
     {
@@ -19,8 +20,12 @@ const router = createBrowserRouter([
                 element: <Blog />
             },
             {
+                path: 'blog/:blogId',
+                element: <BlogPost />
+            },
+            {
                 path: '/',
-                element: <App />,
+                element: <App/>
             },
             {
                 path: 'about',

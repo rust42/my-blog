@@ -1,16 +1,15 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {fetchBlogs as getBlogs} from './Client';
+import {fetchBlogs as getBlogs} from '../Services/Client';
 
 const initialState = {
     status: 'idle',
-    blog: {}
+    blogs: []
 };
 
 const blogsSlice = createSlice({
     name: "blogs",
     initialState,
     reducers: {
-
     },
     extraReducers(builder) {
         builder.addCase(fetchBlogs.pending, (state, action) => {
@@ -18,7 +17,7 @@ const blogsSlice = createSlice({
         })
         .addCase(fetchBlogs.fulfilled, (state, action) => {
             state.status = 'succeeded';
-            state.blog =  action.payload;
+            state.blogs =  action.payload;
         }).addCase(fetchBlogs.rejected, (state, action) => {
             state.status = "failed";
             state.error = action.error.message;
