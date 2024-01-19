@@ -42,6 +42,38 @@ Resources:
             Effect: Allow
             Resource: !Join ['', [!GetAtt S3Bucket.Arn, '/*']]
             Principal: '*'
+  JSONBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+         BucketName: blog-json-objects
+         PublicAccessBlockConfiguration:
+           BlockPublicAcls: false
+           BlockPublicPolicy: false
+           IgnorePublicAcls: false
+           RestrictPublicBuckets: false
+
+         CorsConfiguration:
+              CorsRules:
+                  - AllowedMethods:
+                       - "GET"
+                    AllowedOrigins:
+                      - "*"
+                    ExposedHeaders:
+                         - Date 
+                    Id: CorsRuleId 
+                    MaxAge: 3600
+  JSONBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref JSONBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action: s3:GetObject
+            Effect: Allow
+            Resource: !Join [ '', [ !GetAtt JSONBucket.Arn, '/*' ] ]
+            Principal: '*'
+
 
   FrontEndAppDistribution:
     Type: AWS::CloudFront::Distribution
@@ -120,4 +152,6 @@ Outputs:
   CloudFrontDistribution:
     Description: Cloudfront DNS name
     Value: !GetAtt [FrontEndAppDistribution, DomainName]
-
+  JSONBucketName:
+    Description: Name of the json bucket
+    Value: !Ref JSONBucket

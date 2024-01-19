@@ -1,6 +1,14 @@
 import './App.css';
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {fetchBlogs} from "./BlogsSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBlogs());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <section className="blog-list px-3 py-5 p-md-5">

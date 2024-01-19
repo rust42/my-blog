@@ -1,8 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { Provider} from "react-redux";
+import { store } from "./Store";
 
 const Root = () => {
-    return <div>
+    return <Provider store={store}>
     <header className="header text-center">
         <h1 className="blog-name pt-lg-4 mb-0">
             <Link className="no-text-decoration" to="">Sandeep's
@@ -148,7 +150,7 @@ const Root = () => {
     <script src="/index_files/bootstrap.min.js"></script>
 
     <div id="proctor-extension-installed"></div>
-    </div>
+    </Provider>
 };
 
 export default Root;
