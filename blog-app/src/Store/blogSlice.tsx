@@ -2,8 +2,9 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {fetchBlog as getBlog} from '../Services/Client';
 import BlogItem from "../types/BlogItem";
 import Content from "../types/Content";
+import LoadingStatus from "../types/LoadingStatus";
 
-const initialState: Content<BlogItem> = { status: 'idle' };
+const initialState: Content<BlogItem> = { status: LoadingStatus.idle };
 
 const blogSlice = createSlice({
     name: "blog",
@@ -12,13 +13,13 @@ const blogSlice = createSlice({
     },
     extraReducers(builder) {
         builder.addCase(fetchBlog.pending, (state, action) => {
-            state.status = 'loading'
+            state.status = LoadingStatus.loading
         })
         .addCase(fetchBlog.fulfilled, (state, action) => {
-            state.status = 'succeeded';
+            state.status = LoadingStatus.succeeded;
             state.value =  action.payload;
         }).addCase(fetchBlog.rejected, (state, action) => {
-            state.status = "failed";
+            state.status = LoadingStatus.failed;
             state.error = action.error.message;
         });
     }
