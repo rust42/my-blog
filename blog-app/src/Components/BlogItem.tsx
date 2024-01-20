@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Blog from "../types/Blog";
 import React from "react";
+import { imageURL } from '../Services/Utilities'
 
 type Props = {
     blog: Blog,
@@ -12,7 +13,7 @@ const BlogItem: React.FC<Props> = (props) => {
     <div className="item mb-5">
         <div className="row g-3 g-xl-0 mb-5">
             <div className="col-2 col-xl-3">
-                <img className="img-fluid post-thumb " src={`https://blog-json-objects.s3.amazonaws.com/content/${blog.image}`} alt="image" />
+                <img className="img-fluid post-thumb " src={imageURL(blog.image)} alt="image" />
             </div>
             <div className="col">
                 <h3 className="title mb-1">

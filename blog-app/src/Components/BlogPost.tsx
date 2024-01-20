@@ -10,8 +10,7 @@ import LoadingIndicator from "./LoadingIndicator";
 
 const BlogPost = () => {
     const [shouldRedirect, setShouldRedirect] = useState<Boolean>(false);
-    const params = useParams<{blogId: string}>();
-    const blogId = params.blogId;
+    const { blogId } = useParams<"blogId">();
     const blog = useSelector((selector: RootState) => selector.blog.value);
     const loadingState = useSelector((selector: RootState) => selector.blog.status);
     const dispatch = useDispatch<AppDispatch>();
