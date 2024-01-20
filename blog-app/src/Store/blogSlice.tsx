@@ -1,16 +1,14 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {fetchBlog as getBlog} from '../Services/Client';
+import BlogItem from "../types/BlogItem";
+import Content from "../types/Content";
 
-const initialState = {
-    status: 'idle',
-    blog: {}
-};
+const initialState: Content<BlogItem> = { status: 'idle' };
 
 const blogSlice = createSlice({
     name: "blog",
     initialState,
     reducers: {
-        reset: () => initialState
     },
     extraReducers(builder) {
         builder.addCase(fetchBlog.pending, (state, action) => {
@@ -18,7 +16,7 @@ const blogSlice = createSlice({
         })
         .addCase(fetchBlog.fulfilled, (state, action) => {
             state.status = 'succeeded';
-            state.blog =  action.payload;
+            state.value =  action.payload;
         }).addCase(fetchBlog.rejected, (state, action) => {
             state.status = "failed";
             state.error = action.error.message;
@@ -28,8 +26,7 @@ const blogSlice = createSlice({
 
 export default blogSlice.reducer;
 
-export  const  { reset } = blogSlice.actions;
 export const fetchBlog = createAsyncThunk('blog/fetch',
-    async({ blogId }) => {
+    async(blogId: string) => {
     return await getBlog(blogId);
 });

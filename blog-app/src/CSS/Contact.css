@@ -1,0 +1,64 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #e9ecef;
+    color: #495057;
+    line-height: 1.6;
+}
+
+.form-container {
+    /* Centering the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust height as needed */
+}
+
+.contact-form {
+    background: #fff;
+    padding: 20px;
+    width: 50%;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form h2 {
+    color: #0056b3;
+}
+
+.contact-form input[type='text'],
+.contact-form input[type='email'],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.contact-form button[type='submit'] {
+    background: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button[type='submit']:hover {
+    background: #61dafb;
+}
+
+.validation-message {
+    color: red;
+    font-size: 14px;
+}

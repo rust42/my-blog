@@ -1,9 +1,10 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {fetchBlogs as getBlogs} from '../Services/Client';
+import Content from "../types/Content";
+import Blog from "../types/Blog";
 
-const initialState = {
+const initialState: Content<Blog[]> = {
     status: 'idle',
-    blogs: []
 };
 
 const blogsSlice = createSlice({
@@ -17,7 +18,7 @@ const blogsSlice = createSlice({
         })
         .addCase(fetchBlogs.fulfilled, (state, action) => {
             state.status = 'succeeded';
-            state.blogs =  action.payload;
+            state.value =  action.payload;
         }).addCase(fetchBlogs.rejected, (state, action) => {
             state.status = "failed";
             state.error = action.error.message;

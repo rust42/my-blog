@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
-const BlogItem = ({ blog }) => {
+import Blog from "../types/Blog";
+import React from "react";
+
+type Props = {
+    blog: Blog,
+    className: string
+};
+const BlogItem: React.FC<Props> = (props) => {
+    const blog = props.blog;
     return <div className="container single-col-max-width">
     <div className="item mb-5">
         <div className="row g-3 g-xl-0 mb-5">

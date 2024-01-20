@@ -26,7 +26,7 @@ const Root = () => {
                             journey with you through this blog.
 
 
-                            <br/><a href="#about">Find out more about me</a></div>
+                            <Link to="about">Find out more about me</Link></div>
                         <ul className="social-list list-inline py-3 mx-auto">
                             <li className="list-inline-item"><a href="https://twitter.com/k6sandeep">
                                 <svg className="svg-inline--fa fa-twitter fa-fw" aria-hidden="true" focusable="false"
@@ -90,7 +90,7 @@ const Root = () => {
                 </ul>
 
                 <div className="my-2 my-md-3">
-                    <Link className="btn btn-primary" to="contact" target="_blank">Get in Touch</Link>
+                    <Link className="btn btn-primary" to="contact">Get in Touch</Link>
                 </div>
             </div>
         </nav>

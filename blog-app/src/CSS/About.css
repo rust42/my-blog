@@ -1,0 +1,56 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #e9ecef;
+    color: #495057;
+    line-height: 1.6;
+}
+blockquote {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: #555;
+    border-left: 4px solid #5bc0de;
+    padding-left: 20px;
+    margin-left: 0;
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 30px;
+}
+.about-section {
+    background: #fff;
+    padding: 40px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.about-section h1, .about-section h2 {
+    color: #5bc0de;
+}
+.about-section p {
+    font-size: 18px;
+}
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+.list li {
+    padding: 8px;
+    border-bottom: 1px solid #f1f1f1;
+}
+.list li:last-child {
+    border-bottom: none;
+}
+.list li::before {
+    content: '✔️ ';
+    color: #28a745;
+}
+.profile-picture {
+    max-width: 200px;
+    margin: 20px 0;
+}
