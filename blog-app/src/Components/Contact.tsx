@@ -80,7 +80,7 @@ const Contact = () => {
                 <h2>Contact Me</h2>
                 <form action="#" method="POST" onSubmit={onSubmit}>
                     <label htmlFor="name">Name</label>
-                    <input type="text" id="name" name="name" required onChange={event => {
+                    <input type="text" value={name} id="name" name="name" required onChange={event => {
                         setName(event.target.value)
                     }}/>
                     {nameValidationError.length > 0 &&
@@ -90,7 +90,7 @@ const Contact = () => {
                     }
 
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" required onChange={event => {
+                    <input type="email" value={email} id="email" name="email" required onChange={event => {
                         setEmail(event.target.value)
                     }}/>
                     {emailValidationError.length > 0 &&
@@ -100,7 +100,7 @@ const Contact = () => {
                     }
 
                     <label htmlFor="message">Message</label>
-                    <textarea id="message" name="message" required onChange={event => {
+                    <textarea id="message" value={message} name="message" required onChange={event => {
                         setMessage(event.target.value)
                     }}></textarea>
                     {messageValidationError.length > 0 &&

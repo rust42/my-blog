@@ -15,15 +15,13 @@ const fetchBlog: (postId: string) => Promise<BlogItem> = async (postId) => {
 };
 
 const submitContactMesssage = async (formField: ContactForm) => {
-    const searchParams = new URLSearchParams();
-    searchParams.append("name", formField.name);
-    searchParams.append("email", formField.email);
-    searchParams.append("message", formField.message);
-
     try {
         const response = await fetch("https://blog.api.k6sandeep.com/contact", {
             method: "POST",
-            body: searchParams
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formField)
         });
         return response.status === 200
     } catch {

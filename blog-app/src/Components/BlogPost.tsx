@@ -37,7 +37,7 @@ const BlogPost = () => {
         <div className="container single-col-max-width">
             <header className="blog-post-header">
                 <h2 className="title mb-2">{blog.title}</h2>
-                <div className="meta mb-3"><span className="date">{moment(blog.date, "DD MMM YYYY").fromNow()}</span>
+                <div className="meta mb-3"><span className="date">{moment(blog.date, "YYYY-MM-DD").fromNow()}</span>
                     <span className="time">5 min read</span><span className="comment"></span></div>
             </header>
 
@@ -46,7 +46,7 @@ const BlogPost = () => {
 
                 {blog && blog.sections.map(section => <div key={section.sectionTitle}>
                     <h3 className="mt-5 mb-3">{section.sectionTitle}</h3>
-                    {section.image &&   <img className="img-fluid mt-3 mb-3 rounded card" src={`https://blog-json-objects.s3.amazonaws.com/content/${section.image}`}
+                    {section.image &&   <img className="img-fluid mt-3 mb-3 rounded card blog-image" src={`https://blog-json-objects.s3.amazonaws.com/content/${section.image}`}
                                              alt="image" /> }
 
                     <p>{section.content}  </p>

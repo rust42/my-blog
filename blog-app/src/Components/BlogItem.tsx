@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Blog from "../types/Blog";
 import React from "react";
 import { imageURL } from '../Services/Utilities'
+import moment from "moment/moment";
 
 type Props = {
     blog: Blog,
@@ -18,7 +19,7 @@ const BlogItem: React.FC<Props> = (props) => {
             <div className="col">
                 <h3 className="title mb-1">
                     <Link to={`blog/${blog.identifier}`} className="text-link">{blog.title}</Link></h3>
-                <div className="meta mb-1"><span className="date">Published {blog.date}</span><span
+                <div className="meta mb-1"><span className="date">Published {moment(blog.date, "YYYY-MM-DD").fromNow()}</span><span
                     className="comment"><a className="text-link"
                                            href="#"></a></span>
                 </div>
