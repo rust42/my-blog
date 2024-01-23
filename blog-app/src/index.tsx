@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AboutMe from "./Components/AboutMe";
 import Contact from "./Components/Contact";
 import BlogPost from "./Components/BlogPost";
+import ConfirmSubscription from "./Components/ConfirmSubscription";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
                 element: <Contact />
             }
         ]
+    },
+    {
+        path: '/subscription/:subscriptionId',
+        element: <ConfirmSubscription />
     }
 ]);
 

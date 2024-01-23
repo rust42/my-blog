@@ -14,6 +14,7 @@ const blogSlice = createSlice({
     extraReducers(builder) {
         builder.addCase(fetchBlog.pending, (state, action) => {
             state.status = LoadingStatus.loading
+            state.value = undefined
         })
         .addCase(fetchBlog.fulfilled, (state, action) => {
             state.status = LoadingStatus.succeeded;
@@ -21,6 +22,7 @@ const blogSlice = createSlice({
         }).addCase(fetchBlog.rejected, (state, action) => {
             state.status = LoadingStatus.failed;
             state.error = action.error.message;
+            state.value = undefined
         });
     }
 });

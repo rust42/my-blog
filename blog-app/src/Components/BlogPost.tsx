@@ -46,7 +46,8 @@ const BlogPost = () => {
 
                 {blog && blog.sections.map(section => <div key={section.sectionTitle}>
                     <h3 className="mt-5 mb-3">{section.sectionTitle}</h3>
-                    {section.image &&   <img className="img-fluid mt-3 mb-3 rounded card blog-image" src={`https://blog-json-objects.s3.amazonaws.com/content/${section.image}`}
+                    {section.image &&
+                    <img className="img-fluid mt-3 mb-3 rounded card blog-image" src={`https://blog-json-objects.s3.amazonaws.com/content/${section.image}`}
                                              alt="image" /> }
 
                     <p>{section.content}  </p>

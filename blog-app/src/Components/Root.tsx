@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Provider} from "react-redux";
 import { store } from "../Store/Store";
+import SubscribeButton from './SubscribeButton';
+import FooterView from './FooterView';
 
 const Root = () => {
     return <Provider store={store}>
@@ -100,39 +102,8 @@ const Root = () => {
         <div id="detail">
             <Outlet />
         </div>
-
-        <section className="cta-section theme-bg-light py-5">
-            <div className="container text-center single-col-max-width">
-                <h2 className="heading">Sandeep's Blog - Code, Grow, Connect</h2>
-                <div className="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
-                <div className="single-form-max-width pt-3 mx-auto">
-                    <form className="signup-form row g-2 g-lg-2 align-items-center">
-                        <div className="col-12 col-md-9">
-                            <label className="sr-only" htmlFor="semail">Your email</label>
-                            <input type="email" id="semail" name="semail1" className="form-control me-md-1 semail"
-                                   placeholder="Enter email" />
-                        </div>
-                        <div className="col-12 col-md-2">
-                            <button type="submit" className="btn btn-primary">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <footer className="footer text-center py-2 theme-bg-dark">
-
-            <small className="copyright">Designed with <span className="sr-only">love</span>
-                <svg className="svg-inline--fa fa-heart" style={{color: "#fb866a"}} aria-hidden="true" focusable="false"
-                     data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 512 512" data-fa-i2svg="">
-                    <path fill="currentColor"
-                          d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path>
-                </svg>
-                by <a rel="Credits" href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> for developers</small>
-
-        </footer>
-
+        <SubscribeButton />
+        <FooterView / >
     </div>
 
     <script src="/index_files/popper.min.js"></script>
