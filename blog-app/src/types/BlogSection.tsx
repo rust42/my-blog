@@ -1,8 +1,38 @@
-interface BlogSection {
-    sectionTitle: string
-    content: string
-    code?: string
-    image?: string
+interface ContentDescription {
+    description: string
 }
 
+interface ContentCode {
+    code: string,
+    caption?: string,
+    lang?: string
+}
+
+interface ContentImage {
+    image: string,
+    caption?: string
+}
+
+interface BlogSection {
+    title: string
+    contents: (ContentDescription | ContentCode | ContentImage)[]
+}
+
+const isDescription = (content: any): content is ContentDescription => {
+    return 'description' in content;
+}
+
+const isImage = (content: any): content is ContentImage => {
+    return 'image' in content;
+}
+
+const isCode = (content: any): content is ContentCode => {
+    return 'code' in content;
+}
+
+
 export default BlogSection;
+
+export { isCode, isDescription, isImage };
+export type { ContentCode, ContentDescription, ContentImage };
+
