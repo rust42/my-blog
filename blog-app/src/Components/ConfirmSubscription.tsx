@@ -19,10 +19,13 @@ const ConfirmSubscription = () => {
         const result = await verifySubscription(subscriptionId)
         setRequestInProgress(false)
         if (result) {
-            navigate("/")
-            return
+            navigate("/", {state: { header: "Subscription Confirmed!",
+                                    variant: "success",
+                                    message: "Thank you for verifying your email address. Your subscription to our newsletter is now active. Look forward to regular updates and insights delivered straight to your inbox." }})
         } else {
-            alert("Could not validate the request")
+            navigate("/", {state: { header: "Verification Failed",
+                                    variant: "danger",
+                                    message: "We're sorry, but your subscription verification link has expired or is invalid. This can happen if the link has already been used or if too much time has passed since it was sent. Please request a new subscription verification from our website to continue.\n" }})
         }
     };
 

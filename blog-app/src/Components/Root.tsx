@@ -1,13 +1,21 @@
-import { Outlet } from 'react-router-dom';
+import {Outlet, useLocation} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Provider} from "react-redux";
 import { store } from "../Store/Store";
 import SubscribeButton from './SubscribeButton';
 import FooterView from './FooterView';
+import Alert from "./Alert";
 
+interface MessageHash { header: string, message: string, variant: "success" | "error" }
 const Root = () => {
+
+    const location = useLocation();
+    const state = location.state
+    const messageHash = state as MessageHash | null
+    window.history.replaceState({}, document.title)
+
     return <Provider store={store}>
-    <header className="header text-center">
+        <header className="header text-center">
         <h1 className="blog-name pt-lg-4 mb-0">
             <Link className="no-text-decoration" to="">Sandeep's
             Blog</Link></h1>
@@ -100,6 +108,12 @@ const Root = () => {
 
     <div className="main-wrapper">
         <div id="detail">
+            {messageHash?.message &&
+                <Alert variant={messageHash.variant} show={true}>
+                    <h4 className="alert-heading">{messageHash.header}</h4>
+                    <p style={{textAlign: "center"}}>{messageHash.message}</p>
+                </Alert>
+            }
             <Outlet />
         </div>
         <SubscribeButton />

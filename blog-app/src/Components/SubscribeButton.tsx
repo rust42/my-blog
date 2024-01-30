@@ -2,10 +2,12 @@ import {FormEvent, useState} from "react";
 import LoadingIndicator from "./LoadingIndicator";
 import {validateEmail} from "../Services/Utilities";
 import {sendSubscriptionRequest} from "../Services/Client";
+import {useNavigate} from "react-router-dom";
 
 const SubscribeButton = () => {
     const [isPending, setPending] = useState(false);
     const [email, setEmail] = useState("")
+    const navigate = useNavigate();
     const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         if (!validateEmail(email).valid) {
@@ -13,7 +15,18 @@ const SubscribeButton = () => {
             return
         }
         setPending(true);
-        await sendSubscriptionRequest(email)
+        const success = await sendSubscriptionRequest(email)
+        if (success) {
+            navigate("/", {state: { header: "Check Your Inbox!",
+                                    variant: "success",
+                                    message: "Thanks for subscribing! We've sent a verification email to the address you provided. Please check your inbox (and spam folder, just in case) to complete the subscription process by clicking the verification link. Welcome aboard!" }})
+        } else {
+            navigate("/", {state: { header: "Oops! Something Went Wrong!",
+                    variant: "danger",
+                    message: "We encountered an issue sending your subscription verification email. This can sometimes happen due to technical difficulties on our end. Please try subscribing again shortly, or contact support if the problem persists. We apologize for the inconvenience and appreciate your patience." }})
+
+        }
+
         setPending(false)
     }
 
