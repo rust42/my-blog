@@ -10,7 +10,7 @@ const fetchBlogs: () => Promise<Blog[]> = async () => {
 };
 
 const fetchBlog: (postId: string) => Promise<BlogItem> = async (postId) => {
-    const response = await fetch(`${baseUrl}/posts/${postId}_new.json`);
+    const response = await fetch(`${baseUrl}/posts/${postId}.json`);
     return await response.json();
 };
 
