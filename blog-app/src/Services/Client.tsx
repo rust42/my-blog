@@ -29,4 +29,35 @@ const submitContactMesssage = async (formField: ContactForm) => {
     }
 }
 
-export { fetchBlogs, fetchBlog, submitContactMesssage };
+const sendSubscriptionRequest = async (email: string)=> {
+    try {
+        const response = await fetch("https://blog.api.k6sandeep.com/subscription", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email })
+        });
+        return response.status === 200
+    } catch {
+        return false
+    }
+}
+
+const verifySubscription = async (subscriptionId: string)=> {
+    try {
+        const response = await fetch("https://blog.api.k6sandeep.com/subscription/verify", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ identifier: subscriptionId })
+        });
+        return response.status === 200
+    } catch {
+        return false
+    }
+}
+
+
+export { fetchBlogs, fetchBlog, submitContactMesssage, sendSubscriptionRequest, verifySubscription };

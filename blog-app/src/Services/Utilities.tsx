@@ -42,4 +42,4 @@ const validateMessage = (message: string): ValidationResult => {
     return { valid: true };
 }
 
-export { imageURL, validateForm };
+export { imageURL, validateForm, validateEmail };
