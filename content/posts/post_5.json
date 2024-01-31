@@ -8,9 +8,11 @@
       "title": "Reflecting on a Decade in Finland",
       "contents": [
         {
+          "id": 1,
           "description": "Having lived in Finland for over ten years, my life underwent many transformations. The experiences I gathered there have been invaluable, yet the move to the US brought about a sense of continuity with subtle changes. The transition has been intriguing, and I'm still exploring whether it has led to the happiness I seek."
         },
         {
+          "id": 2,
           "image": "images/image12.png",
           "caption": ""
         }
@@ -20,6 +22,7 @@
       "title": "Embracing the End of an Era",
       "contents": [
         {
+          "id": 3,
           "description": "The completion of my studies is not just an academic milestone; it's the beginning of a new phase of life. It promises more time for personal endeavors, reconnecting with loved ones, and pursuing passions that were sidelined by academic commitments."
         }
       ]
@@ -28,9 +31,11 @@
       "title": "Looking Forward to 2024",
       "contents": [
         {
+          "id": 4,
           "description": "The year 2024 is not just another year in the calendar; it's a canvas of opportunities. I have plans to further my professional skills, explore new hobbies, and maybe venture into areas unexplored. While the exact path is uncertain, the journey itself is thrilling."
         },
         {
+          "id": 5,
           "image": "images/image13.png",
           "caption": ""
         }
@@ -40,6 +45,7 @@
       "title": "The Role of Time and Change",
       "contents": [
         {
+          "id": 6,
           "description": "In life's journey, change is the only constant. While I'm eager to see what 2024 holds, I'm also prepared to embrace the unexpected. After all, it's these surprises that often lead to the most memorable experiences."
         }
       ]

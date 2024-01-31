@@ -10,6 +10,7 @@ import LoadingIndicator from "./LoadingIndicator";
 import { ContentCode, ContentDescription, ContentImage, isCode, isDescription, isImage } from '../types/BlogSection';
 import CodeBlock from './CodeBlock';
 import Markdown from 'react-markdown'
+import ImageModal from "./ImageModal";
 
 
 const BlogPost = () => {
@@ -52,9 +53,7 @@ const BlogPost = () => {
                 <p>{blog.intro}</p>
                 {blog && blog.sections.map(section => <div key={section.title}>
                     <h3 className="mt-5 mb-3">{section.title}</h3>
-                    {section.contents.map(content => {
-                            console.log(content);
-                    return <Content content={content}/> })}
+                    {section.contents.map(content => <Content content={content} key={`${content.id}`} />)}
 
                 </div>)}
             </div>
@@ -66,7 +65,8 @@ export default BlogPost;
 
 
 type Props = {
-    content: (ContentCode | ContentDescription | ContentImage),
+        key: string,
+        content: (ContentCode | ContentDescription | ContentImage),
 };
 
 const Content: React.FC<Props> = (props: Props) => {
@@ -80,13 +80,11 @@ const Content: React.FC<Props> = (props: Props) => {
 
     if (isDescription(content)) {
 
-        return <p><Markdown>{content.description}</Markdown></p>
+        return <Markdown>{content.description}</Markdown>
     }
 
     if (isImage(content)) {
-        return <img className="img-fluid mt-3 mb-3 rounded card blog-image" 
-        src={`https://blog-json-objects.s3.amazonaws.com/content/${content.image}`} alt="" />
-
+        return <ImageModal imageUrl={`https://blog-json-objects.s3.amazonaws.com/content/${content.image}`} modalTitle={content.modalTitle} />
     }
 
     console.error("No such type of object supported yet ", content);

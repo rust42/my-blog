@@ -8,14 +8,16 @@ interface ContentCode {
     lang?: string
 }
 
+
 interface ContentImage {
     image: string,
     caption?: string
+    modalTitle?: string
 }
 
 interface BlogSection {
     title: string
-    contents: (ContentDescription | ContentCode | ContentImage)[]
+    contents:  ({ id: string } & (ContentDescription | ContentCode | ContentImage))[]
 }
 
 const isDescription = (content: any): content is ContentDescription => {
