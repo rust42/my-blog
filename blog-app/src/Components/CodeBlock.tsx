@@ -1,4 +1,4 @@
-import hljs, { Node } from "highlightjs";
+import hljs from "highlightjs";
 import { useRef, useEffect } from "react";
 import "highlightjs/styles/atom-one-dark.css";
 

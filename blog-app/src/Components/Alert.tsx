@@ -1,4 +1,4 @@
-import React, {useState, useEffect, ReactNode, memo} from 'react'
+import React, {useState, useEffect, ReactNode} from 'react'
 
 type Props = {
     variant: string,

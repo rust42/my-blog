@@ -24,7 +24,7 @@ const BlogPost = () => {
         if (blogId !== undefined) {
             dispatch(fetchBlog(blogId));
         }
-    }, [dispatch]);
+    }, [dispatch, blogId]);
 
     if (shouldRedirect) {
         return  <Navigate to="/"></Navigate>

@@ -30,7 +30,7 @@ const Root = () => {
             <div id="navigation" className="collapse navbar-collapse flex-column">
                 <div className="profile-section pt-3 pt-lg-0">
                     <img className="profile-image mb-3 rounded-circle mx-auto" src="/index_files/profile.png"
-                         alt="image" />
+                         alt="" />
 
                         <div className="bio mb-3">Namaste! 🌏 My name is Sandeep Koirala, and I'm thrilled to share my
                             journey with you through this blog.
@@ -117,7 +117,7 @@ const Root = () => {
             <Outlet />
         </div>
         <SubscribeButton />
-        <FooterView / >
+        <FooterView />
     </div>
 
     <script src="/index_files/popper.min.js"></script>
