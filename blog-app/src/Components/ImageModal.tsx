@@ -12,7 +12,7 @@ const ImageModal =  (props: Props) => {
 
     return (
         <>
-            <img src={imageUrl} className="img-fluid mt-3 mb-3 rounded card blog-image" alt="" onClick={handleShow} style={{ cursor: modalTitle != undefined ? 'pointer' : 'auto' }} />
+            <img src={imageUrl} className="img-fluid mt-3 mb-3 rounded card blog-image" alt="" onClick={handleShow} style={{ cursor: modalTitle !== undefined ? 'pointer' : 'auto' }} />
 
             {modalTitle && <Modal show={show} onHide={handleClose} size="lg" dialogClassName="modal-90w" aria-labelledby="example-custom-modal-styling-title" centered>
                 <Modal.Header closeButton>
