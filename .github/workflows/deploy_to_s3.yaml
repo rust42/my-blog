@@ -1,4 +1,4 @@
-name: Sync to S3
+name: Deploy Frontend app
 on:
   - workflow_dispatch
 jobs:

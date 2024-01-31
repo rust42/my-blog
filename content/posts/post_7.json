@@ -169,6 +169,26 @@
             "description": "To everyone who has followed along, thank you. Your support fuels my motivation to keep exploring, learning, and sharing. Here's to many more posts, projects, and learning opportunities ahead. The journey of innovation and growth never truly ends, and I can't wait to see where it takes us next."
           }
         ]
+      },
+      {
+        "title": "Explore My Blog's Code and Live Site",
+        "contents": [
+          {
+            "description": "I've made the code for both the frontend and backend of my blog available on GitHub. If you're curious about the details or want to see how I've built everything, feel free to explore the repositories."
+          },
+          {
+            "description": "### Frontend Repository\n\nYou can find the frontend code here: [my-blog frontend on GitHub](https://github.com/rust42/my-blog).\n\nThis part of the project is built with React, showcasing how I've structured the UI and handled user interactions."
+          },
+          {
+            "description": "### Backend Repository\n\nThe backend, which handles data storage, retrieval, and other server-side logic, is available here: [CC-Project-Lambda backend on GitHub](https://github.com/rust42/CC-Project-Lambda).\n\nIt's a collection of AWS Lambda functions, demonstrating how I utilize serverless computing to power the blog."
+          },
+          {
+            "description": "### Live Blog Site\n\nWant to see the result in action? Visit my blog at [https://blog.k6sandeep.com/](https://blog.k6sandeep.com/).\n\nIt's where all the pieces come together, offering a glimpse into what's possible when combining modern web development practices with AWS's powerful cloud capabilities."
+          },
+          {
+            "description": "Sharing these resources is part of my commitment to open learning and collaboration. Whether you're a fellow developer interested in the technical aspects, or simply curious about the behind-the-scenes of a blog, I hope you find these insights valuable. And of course, I'm always looking to improve and expand, so your feedback and contributions are welcome!"
+          }
+        ]
       }
     ]
   }
