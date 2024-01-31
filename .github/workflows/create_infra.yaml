@@ -1,0 +1,21 @@
+name: Setup infrastructure
+on:
+  - workflow_dispatch
+jobs:
+  Create-Infra:
+    name: Setup infra
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Configure AWS Credentials from CI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::779574454656:role/ci-role
+          aws-region: us-east-1
+      - name: Create Change Sets
+        run: aws cloudformation create-change-set --template-body  file://./CloudFormation\ Templates/frontend.yaml --stack-name front-end --change-set-name front-end-change-set --parameters file://./CloudFormation\ Templates/InputParameters.json
+

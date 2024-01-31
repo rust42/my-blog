@@ -9,6 +9,8 @@ import {AppDispatch, RootState} from "../Store/Store";
 import LoadingIndicator from "./LoadingIndicator";
 import { ContentCode, ContentDescription, ContentImage, isCode, isDescription, isImage } from '../types/BlogSection';
 import CodeBlock from './CodeBlock';
+import Markdown from 'react-markdown'
+
 
 const BlogPost = () => {
     const [shouldRedirect, setShouldRedirect] = useState<Boolean>(false);
@@ -44,8 +46,10 @@ const BlogPost = () => {
             </header>
 
             <div className="blog-post-body">
-                <p>{blog.intro}</p>
+                {blog.image && <img className="img-fluid mt-3 mb-3 rounded card blog-image"
+                                    src={`https://blog-json-objects.s3.amazonaws.com/content/${blog.image}`} alt="" />}
 
+                <p>{blog.intro}</p>
                 {blog && blog.sections.map(section => <div key={section.title}>
                     <h3 className="mt-5 mb-3">{section.title}</h3>
                     {section.contents.map(content => {
@@ -75,7 +79,8 @@ const Content: React.FC<Props> = (props: Props) => {
     }
 
     if (isDescription(content)) {
-        return <p>{content.description}</p>
+
+        return <p><Markdown>{content.description}</Markdown></p>
     }
 
     if (isImage(content)) {

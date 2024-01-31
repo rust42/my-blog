@@ -7,6 +7,7 @@ interface BlogItem {
     author: string
     date: number
     intro: string
+    image?: string
     sections: BlogSection[]
 }
 
