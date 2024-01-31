@@ -1,0 +1,91 @@
+{
+  "title": "Transitioning from Mobile Development to DevOps: A Personal Journey",
+  "author": "Sandeep Koirala",
+  "date": "2024-01-18",
+  "intro": "The tech industry is a vast sea of evolving roles and technologies, and my personal voyage from the shores of mobile development to the expansive skies of DevOps has been nothing short of transformative. In this blog post, I share my narrative, the lessons learned, the challenges faced, and the knowledge gained. Whether you are a mobile developer considering a similar transition or simply interested in the symbiotic relationship between development and operations, join me as I recount the milestones of this enlightening professional journey",
+  "sections": [
+    {
+      "title": "Introduction to My Journey",
+      "contents": [
+        {
+          "description": "As a seasoned mobile developer, my journey began in the intricate world of iOS development. Crafting applications that reached the hands of thousands was not just a job; it was a passion. Yet, as technology evolved, so did my curiosity, leading me down the path to a new adventure: the realm of DevOps."
+        },
+        {
+          "image": "images/image9.png",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "What Drew Me to DevOps?",
+      "contents": [
+        {
+          "description": "DevOps, a blend of development and operations, intrigued me with its promise of unifying software development and IT operations. The allure lay in its core principles - automation, continuous integration (CI), and continuous delivery (CD) - promising a more streamlined, efficient approach to software development."
+        },
+        {
+          "image": "images/image10.png",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "The Learning Curve: From Mobile to DevOps",
+      "contents": [
+        {
+          "description": "Transitioning from mobile development to DevOps was akin to learning a new language. Tools like Docker and Kubernetes were initially foreign concepts. Docker, with its containerization technology, revolutionized how I thought about application environments. Kubernetes further expanded this horizon, managing these containers at scale."
+        },
+        {
+          "image": "images/image11.png",
+          "caption": ""
+        },
+        {
+          "code": "docker run -d -p 80:80 my-web-app",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Integrating DevOps in Mobile App Development",
+      "contents": [
+        {
+          "description": "The real magic happened when I started integrating DevOps practices into my mobile development workflow. Setting up CI/CD pipelines using tools like Github CI allowed for automated testing and deployment of mobile apps, greatly enhancing productivity and reliability."
+        },
+        {
+          "code": "pipeline:\n  build:\n    script:\n      - build_my_app.sh\n  test:\n    script:\n      - run_tests.sh\n  deploy:\n    script:\n      - deploy_to_store.sh",
+          "lang": "yaml",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Embracing Cloud Infrastructure in DevOps",
+      "contents": [
+        {
+          "description": "Cloud computing, a cornerstone of modern DevOps, transformed the way I managed and scaled applications. Utilizing cloud services like AWS EC2, I could dynamically allocate resources, ensuring efficient scalability and robustness of applications."
+        },
+        {
+          "code": "aws ec2 run-instances --image-id ami-0abcdef1234567890 --count 1 --instance-type t2.micro",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Continuous Learning and Future Trends",
+      "contents": [
+        {
+          "description": "In DevOps, as in mobile development, the learning never stops. I am continuously exploring new technologies and methodologies to stay ahead. The future of DevOps is exciting, with trends like infrastructure as code (IaC) and serverless architectures reshaping how we think about IT infrastructure and operations."
+        }
+      ]
+    },
+    {
+      "title": "Future focus",
+      "contents": [
+        {
+          "description": "Delving deeper into IaC and exploring the potentials of AI and machine learning in DevOps."
+        }
+      ]
+    }
+  ]
+}

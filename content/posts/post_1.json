@@ -1,0 +1,89 @@
+{
+  "title": "A gentle introduction to Kubernetes",
+  "author": "Sandeep Koirala",
+  "date": "2024-01-12",
+  "intro": "If you've heard buzzwords like 'containers' and 'scalability' being thrown around in the tech sphere and wondered what they're all about, you've come to the right place. This gentle introduction is designed to unravel the complexities of Kubernetes and present you with a clear understanding of what it is, how it works, and why it has become the backbone of modern application deployment. Let's embark on this journey to demystify Kubernetes, one pod at a time.\n\n",
+  "sections": [
+    {
+      "title": "Introduction to Kubernetes",
+      "contents": [
+        {
+          "description": "Kubernetes is an open-source platform designed to automate deploying, scaling, and operating application containers. It groups containers that make up an application into logical units for easy management and discovery."
+        },
+        {
+          "image": "images/image1.png",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Understanding Kubernetes Architecture",
+      "contents": [
+        {
+          "description": "Kubernetes follows a client-server architecture. It consists of a master node (control plane) and worker nodes. The master node is responsible for managing the state of the cluster, while worker nodes run the actual applications."
+        },
+        {
+          "code": "kind: MasterConfiguration\napiVersion: kubeadm.k8s.io/v1beta2\nkubernetesVersion: stable",
+          "lang": "yaml",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "What is a Pod in Kubernetes?",
+      "contents": [
+        {
+          "description": "A Pod is the smallest deployable unit created and managed by Kubernetes. A Pod encapsulates one or more application containers, storage resources, a unique network IP, and options that govern how the container(s) should run."
+        },
+        {
+          "code": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: my-pod\nspec:\n  containers:\n  - name: my-container\n    image: nginx",
+          "lang": "yaml",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Deployments and Managing Pods",
+      "contents": [
+        {
+          "description": "Deployments in Kubernetes provide declarative updates to Pods and ReplicaSets. You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate."
+        },
+        {
+          "image": "images/image2.png",
+          "caption": ""
+        },
+        {
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: nginx-deployment\nspec:\n  replicas: 3\n  selector:\n    matchLabels:\n      app: nginx\n  template:\n    metadata:\n      labels:\n        app: nginx\n    spec:\n      containers:\n      - name: nginx\n        image: nginx:1.14.2\n        ports:\n        - containerPort: 80",
+          "lang": "yaml",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Services in Kubernetes",
+      "contents": [
+        {
+          "description": "A Kubernetes Service is an abstraction which defines a logical set of Pods and a policy by which to access them. Services enable a loose coupling between dependent Pods."
+        },
+        {
+          "code": "apiVersion: v1\nkind: Service\nmetadata:\n  name: my-service\nspec:\n  selector:\n    app: MyApp\n  ports:\n    - protocol: TCP\n      port: 80\n      targetPort: 9376",
+          "lang": "yaml",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Setting Up a Kubernetes Cluster",
+      "contents": [
+        {
+          "description": "Setting up a Kubernetes cluster involves installing the necessary components on the master and worker nodes. You can use tools like kubeadm to simplify the process."
+        },
+        {
+          "code": "# Installing kubeadm, kubelet, and kubectl\nsudo apt-get update && sudo apt-get install -y apt-transport-https curl\ncurl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -\ncat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list\ndeb https://apt.kubernetes.io/ kubernetes-xenial main\nEOF\nsudo apt-get update\nsudo apt-get install -y kubelet kubeadm kubectl\nsudo apt-mark hold kubelet kubeadm kubectl",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    }
+  ]
+}

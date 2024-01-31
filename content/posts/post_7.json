@@ -1,0 +1,122 @@
+{
+    "title": "How I Built My Blog with AWS, Kotlin, and React",
+    "author": "Sandeep Koirala",
+    "date": "2024-01-15",
+    "image": "images/image17.png",
+    "intro": "I've had the idea to create my own blog for years but couldn't start due to various reasons. Fortunately, a course on cloud computing changed everything for me. It not only gave me a solid understanding of AWS but also the perfect opportunity to finally build the blogging platform I dreamed of. Using AWS for the backend, Kotlin for its powerful yet concise coding capabilities, and React for an interactive front end, I embarked on this exciting project. This wasn't just about bringing tools together; it was about realizing a long-held dream with the right knowledge and resources.",
+    "sections": [
+      {
+        "title": "Laying the Groundwork with AWS SAM",
+        "contents": [
+          {
+            "description": "The foundation of my blogging platform is anchored in AWS Serverless Application Model (SAM), a model that has dramatically simplified the way we define and deploy serverless applications on AWS. Utilizing SAM's capabilities, we crafted a series of YAML templates that represent the architectural blueprint of our platform. These templates outline everything from Lambda functions that power our backend logic, to the API Gateway endpoints that expose our APIs, and the DynamoDB tables for data persistence. SAM's integration with CloudFormation ensures that deploying and managing these resources is as seamless as iterating over the application code itself."
+          }
+        ]
+      },
+      {
+        "title": "Streamlining CI/CD with AWS CodePipeline",
+        "contents": [
+          {
+            "description": "The agility of our development process is maintained through a CI/CD pipeline built with AWS CodePipeline, complemented by CodeCommit for version control and CodeBuild for automated builds. This setup automates the testing and deployment phases of our code, ensuring that each commit triggers a pipeline run that builds, tests, and deploys our application across multiple environments. The integration with CodeCommit provides a secure, scalable infrastructure for source control, while CodeBuild handles the compilation, testing, and packaging of our Kotlin application, readying it for deployment."
+          }
+        ]
+      },
+      {
+        "title": "The Kotlin Advantage in Serverless Computing",
+        "contents": [
+          {
+            "description": "Choosing Kotlin as the programming language for our serverless backend was a strategic decision driven by Kotlin's concise syntax, robust type inference, and seamless interoperability with Java. These features make Kotlin an ideal choice for developing AWS Lambda functions, allowing us to write more expressive, maintainable code. Our Lambda functions, which form the backbone of the blogging platform, are designed to handle a variety of tasks including rendering blog content, managing subscriptions, and processing contact requests, all while benefiting from the scalability and performance of the AWS serverless ecosystem."
+          }
+        ]
+      },
+      {
+        "title": "Data Management and Real-Time Processing with DynamoDB and Streams",
+        "contents": [
+          {
+            "description": "At the heart of our platform lies Amazon DynamoDB, chosen for its unparalleled scalability, performance, and ease of management as a NoSQL database service. DynamoDB tables store critical data such as subscriber information and blog content metadata. To enhance our platform's interactivity and real-time capabilities, we leverage DynamoDB Streams. This feature captures changes to items in our tables and triggers AWS Lambda functions in response, enabling use cases like sending automatic email notifications via SES whenever new contact requests are recorded. This architecture not only decouples our components but also introduces a layer of real-time data processing that enriches the user experience."
+          }
+        ]
+      },
+      {
+        "title": "Subscription Workflow Optimization with SQS",
+        "contents": [
+          {
+            "description": "Managing blog subscriptions is streamlined through Amazon Simple Queue Service (SQS), which queues subscription requests for processing. Once a reader subscribes, their information is stored in DynamoDB, and a message is dispatched to an SQS queue. This triggers another Lambda function that sends a confirmation email with a subscription link, ensuring the reader's email is verified before adding them to the subscriber list. This process not only automates the subscription workflow but also introduces reliability and scalability, handling spikes in subscription requests without a hitch."
+          }
+        ]
+      },
+      {
+        "title": "Building the Frontend with React and TypeScript",
+        "contents": [
+          {
+            "description": "The frontend of our blogging platform is engineered using React and TypeScript, a combination that offers a powerful development experience with strong typing and modern JavaScript features. React's component-based architecture allows us to build a dynamic, responsive user interface that renders blog posts, images, and code snippets from JSON data fetched from an S3 bucket. This approach not only makes our platform highly interactive but also simplifies content updates and management, as new blog posts can be deployed by simply uploading new JSON files to S3."
+          }
+        ]
+      },
+      {
+        "title": "A Modular Approach to Domain Management",
+        "contents": [
+          {
+            "description": "The use of subdomains such as `blog.k6sandeep.com` and `api.blog.k6sandeep.com` is a deliberate choice to modularize our platform. This structure not only facilitates the organization of frontend and backend components but also sets the stage for future expansion, allowing us to seamlessly introduce additional services and APIs. As we plan to add more subdomains, this approach underscores our commitment to building a scalable, flexible blogging ecosystem that can evolve with our needs and aspirations."
+          }
+        ]
+      },
+      {
+        "title": "Leveraging AWS SAM for Dynamic Contact Notifications",
+        "contents": [
+          {
+            "description": "A key feature of my platform is the instant acknowledgment of reader inquiries, achieved through AWS SAM CloudFormation templates. This setup not only automates the infrastructure deployment but also introduces a real-time reaction to new contacts via DynamoDB Streams."
+          },
+          {
+            "code": "ContactDynamoDBStreamer:\n  Type: AWS::Serverless::Function\n  Properties:\n    Runtime: java17\n    CodeUri: s3://cc-lambda-s3-bucket/c7c1762d1e5cf12055859dc066803d9f\n    Handler: blogs.ContactDynamoDBStream::handleRequest\n    Policies:\n    - DynamoDBReadPolicy:\n        TableName:\n          Ref: ContactTable\n    - Version: '2012-10-17'\n      Statement:\n      - Effect: Allow\n        Action:\n        - ses:SendEmail\n        - ses:SendRawEmail\n        Resource: '*'\n    Architectures:\n    - x86_64\n    MemorySize: 512\n    Environment:\n      Variables:\n        SES_EMAIL_SENDER_EMAIL_ADDRESS:\n          Ref: SESEmailSender\n        SES_EMAIL_BCC_ADDRESS:\n          Ref: SESBCCEmail\n    Events:\n      Stream:\n        Type: DynamoDB\n        Properties:\n          Stream:\n            Fn::GetAtt:\n            - ContactTable\n            - StreamArn\n          BatchSize: 10\n          StartingPosition: LATEST",
+            "lang": "yaml",
+            "caption": "AWS SAM template snippet for setting up ContactDynamoDBStreamer"
+          },
+          {
+            "description": "The DynamoDB stream listener function, `ContactDynamoDBStream`, is crucial for real-time interaction. When a new contact message is entered into the DynamoDB `ContactTable`, this function gets triggered, examining the incoming data for new entries."
+          },
+          {
+            "code": "class ContactDynamoDBStream: RequestHandler<DynamodbEvent, String> {\n    private val emailSender = EmailSender()\n\n    override fun handleRequest(ddbEvent: DynamodbEvent, context: Context): String {\n        val records = ddbEvent.records\n        for (record in records) {\n            if (record.eventName != \"INSERT\") {\n                continue\n            }\n            val newRecords = record.dynamodb.newImage\n            val nameAttribute = newRecords[\"name\"]\n            val emailAttribute = newRecords[\"email\"]\n            if (nameAttribute != null && emailAttribute != null) {\n                emailSender.sendContactConfirmationEmail(name = nameAttribute.s, toEmail = emailAttribute.s)\n            } else {\n                context.logger.log(\"Name or email attribute missing\")\n            }\n        }\n        return \"Successfully processed request\"\n    }\n}",
+            "lang": "kotlin",
+            "caption": "Kotlin code for handling DynamoDB stream events and sending emails"
+          },
+          {
+            "description": "This Kotlin function listens for new entries in our contact table. If a new contact is detected (`eventName` is \"INSERT\"), it retrieves the contact's name and email. Then, it uses an `EmailSender` class to send a confirmation email to the new contact, assuring them their message has been received and will be addressed. This automated feedback loop is essential for maintaining engagement and trust with my blog's audience."
+          }
+        ]
+      },
+      {
+        "title": "Exploring the Blog Content Structure",
+        "contents": [
+          {
+            "description": "The structure of this blog post json is laid out in an easy-to-follow JSON format. Let’s look at an example of how this JSON schema organizes the content:"
+          },
+          {
+            "code": "{\n  \"title\": \"Title of the Blog Post\",\n  \"author\": \"Author Name\",\n  \"date\": \"Post Date\",\n  \"intro\": \"Introduction to the blog post\",\n  \"sections\": [\n    {\n      \"title\": \"Section Title\",\n      \"contents\": [\n        {\n          \"description\": \"Detailed description or insight for this section\"\n        },\n        {\n          \"code\": \"Optional code snippet related to this section\",\n          \"lang\": \"Programming language\",\n          \"caption\": \"Caption for the code snippet\"\n        }\n      ]\n    }\n  ]\n}",
+            "lang": "json",
+            "caption": "Example Blog Post JSON Structure"
+          },
+          {
+            "description": "This example highlights the main components of our blog post JSON schema. The 'sections' array can contain multiple sections, each with its own `title` and `contents`. Within `contents`, we can include detailed `description` texts or `code` snippets with a specific `lang` (programming language) and an optional `caption`. This structured approach allows for a modular and detailed exploration of topics, making complex ideas more accessible."
+          }
+        ]
+      },
+      {
+        "title": "Spectrum of AWS Services",
+        "contents": [
+          {
+            "description": "From API Gateway for managing APIs, Certificate Manager for SSL/TLS certificates, to Lambda, DynamoDB, S3, SQS, SES for core functionalities, CloudFormation for infrastructure as code, and IAM for security and access management - each service plays a critical role. This comprehensive use of AWS not only leverages cloud capabilities to the fullest but also demonstrates how diverse services can be orchestrated to build sophisticated, serverless architectures."
+          }
+        ]
+      },  
+      {
+        "title": "Looking Ahead: Automation with GitHub Actions",
+        "contents": [
+          {
+            "description": "As we continually seek to optimize our deployment workflows, transitioning to GitHub Actions for frontend deployments emerges as a strategic move. This shift aims to automate the synchronization process with our S3 bucket, leveraging GitHub's CI/CD capabilities to streamline updates and ensure that our content remains fresh and engaging. By integrating GitHub Actions, we anticipate not only a reduction in manual intervention but also a more agile, responsive content update cycle."
+          }
+        ]
+      }
+    ]
+  }
+  

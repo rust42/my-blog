@@ -1,0 +1,27 @@
+{
+    "title": "A gentle introduction to Kubernetes",
+    "author": "Sandeep Koirala",
+    "date": "2024-01-12",
+    "intro": "If you've heard buzzwords like 'containers' and 'scalability' being thrown around in the tech sphere and wondered what they're all about, you've come to the right place. This gentle introduction is designed to unravel the complexities of Kubernetes and present you with a clear understanding of what it is, how it works, and why it has become the backbone of modern application deployment. Let's embark on this journey to demystify Kubernetes, one pod at a time.\n\n",
+    "sections": [
+      {
+        "title": "The Spark of Curiosity",
+        contents: [
+            {
+                "image": "",
+                "caption": ""
+            },
+            {
+                "code": "",
+                "caption": ""
+            },
+            {
+                "description": "",
+            },
+            {
+                "title": "",
+            }
+        ]
+      }
+    ]
+}

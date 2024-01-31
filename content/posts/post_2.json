@@ -1,0 +1,135 @@
+{
+  "title": "AWS SAM and Lambda",
+  "author": "Sandeep Koirala",
+  "date": "2024-01-15",
+  "intro": "As cloud computing continues to evolve, the ability to build applications that scale and manage them efficiently has become paramount. This post aims to provide a foundational understanding of AWS SAM and Lambda functions, guiding you through their intricate dance. Together, they streamline the process of deploying and managing serverless applications, allowing you to focus on writing code that matters.",
+  "sections": [
+    {
+      "title": "Introduction to AWS SAM",
+      "contents": [
+        {
+          "description": "AWS SAM is a framework for building serverless applications. It extends AWS CloudFormation to provide a simplified way of defining the Amazon API Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables needed by your serverless application."
+        },
+        {
+          "image": "images/image3.png",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Understanding AWS Lambda",
+      "contents": [
+        {
+          "description": "AWS Lambda is a compute service that lets you run code without provisioning or managing servers. Lambda executes your code only when needed and scales automatically, from a few requests per day to thousands per second."
+        }
+      ]
+    },
+    {
+      "title": "Setting Up a SAM Project",
+      "contents": [
+        {
+          "description": "Setting up a SAM project involves initializing a SAM application using the SAM CLI. This process creates a SAM template, a 'Hello World' Lambda function, and other necessary files."
+        },
+        {
+          "code": "sam init --runtime nodejs12.x --dependency-manager npm --name my-sam-app --app-template hello-world",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Exploring the SAM Template",
+      "contents": [
+        {
+          "description": "The SAM template is a YAML file that defines your serverless application's resources. It specifies the Lambda function, triggers, and other AWS resources."
+        },
+        {
+          "image": "images/image4.png",
+          "caption": ""
+        },
+        {
+          "code": "AWSTemplateFormatVersion: '2010-09-09'\nTransform: AWS::Serverless-2016-10-31\nResources:\n  HelloWorldFunction:\n    Type: AWS::Serverless::Function\n    Properties:\n      CodeUri: hello-world/\n      Handler: app.lambdaHandler\n      Runtime: nodejs12.x",
+          "lang": "yaml",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Deploying a SAM Application",
+      "contents": [
+        {
+          "description": "Deploying a SAM application involves packaging your application and deploying it to AWS CloudFormation. This process creates the necessary AWS resources."
+        },
+        {
+          "code": "sam package --s3-bucket your-bucket-name --output-template-file packaged.yaml\nsam deploy --template-file packaged.yaml --stack-name your-stack-name --capabilities CAPABILITY_IAM",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Working with Lambda Functions in SAM",
+      "contents": [
+        {
+          "description": "In SAM, you define Lambda functions in the template. This includes setting the runtime, handler, and the path to the function code."
+        },
+        {
+          "code": "MyLambdaFunction:\n  Type: AWS::Serverless::Function\n  Properties:\n    Handler: index.handler\n    Runtime: nodejs12.x\n    CodeUri: ./path/to/your/code",
+          "lang": "yaml",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "API Gateway Integration with SAM",
+      "contents": [
+        {
+          "description": "SAM simplifies creating APIs with API Gateway. You define the API Gateway resource and link it to your Lambda functions directly in the SAM template."
+        },
+        {
+          "code": "MyApi:\n  Type: AWS::Serverless::Api\n  Properties:\n    StageName: prod\n    DefinitionBody:\n      'Fn::Transform':\n        Name: 'AWS::Include'\n        Parameters:\n          Location: api-swagger.yaml",
+          "lang": "yaml",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Environment Variables and Configuration",
+      "contents": [
+        {
+          "description": "Managing environment variables in SAM is essential for passing operational parameters to your Lambda functions."
+        },
+        {
+          "image": "images/image5.png",
+          "caption": ""
+        },
+        {
+          "code": "Environment:\n  Variables:\n    TABLE_NAME: MyDynamoDBTable",
+          "lang": "yaml",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Debugging and Logging",
+      "contents": [
+        {
+          "description": "Debugging in SAM involves using tools like AWS CloudWatch and integrating logging into your Lambda functions."
+        },
+        {
+          "code": "exports.lambdaHandler = async (event, context) => {\n    console.log('Event: ', event);\n    // Function logic here\n};",
+          "lang": "javascript",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Best Practices and Advanced Topics",
+      "contents": [
+        {
+          "description": "Understanding best practices in using SAM and Lambda, like managing resources, optimizing cold starts, and security considerations."
+        }
+      ]
+    }
+  ]
+}
