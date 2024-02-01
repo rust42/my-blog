@@ -1,7 +1,7 @@
 {
     "title": "How I Built My Blog with AWS, Kotlin, and React",
     "author": "Sandeep Koirala",
-    "date": "2024-01-15",
+    "date": "2024-01-30",
     "image": "images/image17.png",
     "intro": "I've had the idea to create my own blog for years but couldn't start due to various reasons. Fortunately, a course on cloud computing changed everything for me. It not only gave me a solid understanding of AWS but also the perfect opportunity to finally build the blogging platform I dreamed of. Using AWS for the backend, Kotlin for its powerful yet concise coding capabilities, and React for an interactive front end, I embarked on this exciting project. This wasn't just about bringing tools together; it was about realizing a long-held dream with the right knowledge and resources.",
     "sections": [
