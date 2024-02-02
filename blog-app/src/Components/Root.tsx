@@ -5,6 +5,7 @@ import { store } from "../Store/Store";
 import SubscribeButton from './SubscribeButton';
 import FooterView from './FooterView';
 import Alert from "./Alert";
+import { useEffect } from 'react';
 
 interface MessageHash { header: string, message: string, variant: "success" | "error" }
 const Root = () => {
@@ -13,6 +14,17 @@ const Root = () => {
     const state = location.state
     const messageHash = state as MessageHash | null
     window.history.replaceState({}, document.title)
+
+    useEffect(() => {
+        const navElement = document.getElementById('navigation');
+        if (navElement?.classList.contains('show')) {
+            const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement;
+            const isExpanded = navbarToggler?.getAttribute('aria-expanded') === 'true';
+            if (isExpanded) {
+              navbarToggler?.click();
+            }
+        }
+    }, [location]);
 
     return <Provider store={store}>
         <header className="header text-center">
