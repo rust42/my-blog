@@ -3,7 +3,6 @@
     "controlFlowFlattening": true,
     "deadCodeInjection": true,
     "debugProtection": true,
-    "debugProtectionInterval": 1,
     "disableConsoleOutput": true,
     "rotateStringArray": true,
     "stringArray": true,
