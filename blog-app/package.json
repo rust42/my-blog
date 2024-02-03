@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-release": "GENERATE_SOURCEMAP=false npm run build && npm run obfuscate",
+    "build-release": "GENERATE_SOURCEMAP=false npm run build",
     "obfuscate": "javascript-obfuscator build/static/js --output build/static/js --config obfuscatorConfig.json"
   },
   "eslintConfig": {
