@@ -31,7 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-release": "GENERATE_SOURCEMAP=false npm run build"
+    "build-release": "GENERATE_SOURCEMAP=false npm run build && npm run obfuscate",
+    "obfuscate": "javascript-obfuscator build/static/js --output build/static/js --config obfuscatorConfig.json"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "javascript-obfuscator": "^4.1.0"
   }
 }

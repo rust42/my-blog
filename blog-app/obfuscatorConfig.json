@@ -1,0 +1,13 @@
+{
+    "compact": true,
+    "controlFlowFlattening": true,
+    "deadCodeInjection": true,
+    "debugProtection": true,
+    "debugProtectionInterval": 1,
+    "disableConsoleOutput": true,
+    "rotateStringArray": true,
+    "stringArray": true,
+    "stringArrayEncoding": ["rc4"],
+    "stringArrayThreshold": 0.75
+  }
+  
