@@ -8,13 +8,13 @@
       "title": "Introduction to Kubernetes",
       "contents": [
         {
-          "id": 1,
-          "description": "Kubernetes is an open-source platform designed to automate deploying, scaling, and operating application containers. It groups containers that make up an application into logical units for easy management and discovery."
-        },
-        {
           "id": 2,
           "image": "images/image1.png",
           "caption": ""
+        },
+        {
+          "id": 1,
+          "description": "Kubernetes is an open-source platform designed to automate deploying, scaling, and operating application containers. It groups containers that make up an application into logical units for easy management and discovery."
         }
       ]
     },
