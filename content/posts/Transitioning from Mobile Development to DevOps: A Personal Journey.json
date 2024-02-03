@@ -8,13 +8,13 @@
       "title": "Introduction to My Journey",
       "contents": [
         {
-          "id": 1,
-          "description": "As a seasoned mobile developer, my journey began in the intricate world of iOS development. Crafting applications that reached the hands of thousands was not just a job; it was a passion. Yet, as technology evolved, so did my curiosity, leading me down the path to a new adventure: the realm of DevOps."
-        },
-        {
           "id": 2,
           "image": "images/image9.png",
           "caption": ""
+        },
+        {
+          "id": 1,
+          "description": "As a seasoned mobile developer, my journey began in the intricate world of iOS development. Crafting applications that reached the hands of thousands was not just a job; it was a passion. Yet, as technology evolved, so did my curiosity, leading me down the path to a new adventure: the realm of DevOps."
         }
       ]
     },
@@ -22,13 +22,13 @@
       "title": "What Drew Me to DevOps?",
       "contents": [
         {
-          "id": 3,
-          "description": "DevOps, a blend of development and operations, intrigued me with its promise of unifying software development and IT operations. The allure lay in its core principles - automation, continuous integration (CI), and continuous delivery (CD) - promising a more streamlined, efficient approach to software development."
-        },
-        {
           "id": 4,
           "image": "images/image10.png",
           "caption": ""
+        },
+        {
+          "id": 3,
+          "description": "DevOps, a blend of development and operations, intrigued me with its promise of unifying software development and IT operations. The allure lay in its core principles - automation, continuous integration (CI), and continuous delivery (CD) - promising a more streamlined, efficient approach to software development."
         }
       ]
     },
@@ -36,13 +36,13 @@
       "title": "The Learning Curve: From Mobile to DevOps",
       "contents": [
         {
-          "id": 5,
-          "description": "Transitioning from mobile development to DevOps was akin to learning a new language. Tools like Docker and Kubernetes were initially foreign concepts. Docker, with its containerization technology, revolutionized how I thought about application environments. Kubernetes further expanded this horizon, managing these containers at scale."
-        },
-        {
           "id": 6,
           "image": "images/image11.png",
           "caption": ""
+        },
+        {
+          "id": 5,
+          "description": "Transitioning from mobile development to DevOps was akin to learning a new language. Tools like Docker and Kubernetes were initially foreign concepts. Docker, with its containerization technology, revolutionized how I thought about application environments. Kubernetes further expanded this horizon, managing these containers at scale."
         },
         {
           "id": 7,

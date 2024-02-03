@@ -8,13 +8,13 @@
       "title": "Introduction to AWS SAM",
       "contents": [
         {
-          "id": 1,
-          "description": "AWS SAM is a framework for building serverless applications. It extends AWS CloudFormation to provide a simplified way of defining the Amazon API Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables needed by your serverless application."
-        },
-        {
           "id": 2,
           "image": "images/image3.png",
           "caption": ""
+        },
+        {
+          "id": 1,
+          "description": "AWS SAM is a framework for building serverless applications. It extends AWS CloudFormation to provide a simplified way of defining the Amazon API Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables needed by your serverless application."
         }
       ]
     },
