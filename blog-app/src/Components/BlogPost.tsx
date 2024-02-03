@@ -15,17 +15,17 @@ import ImageModal from "./ImageModal";
 
 const BlogPost = () => {
     const [shouldRedirect, setShouldRedirect] = useState<Boolean>(false);
-    const { blogId } = useParams<"blogId">();
+    const { title } = useParams<"title">();
     const blog = useSelector((selector: RootState) => selector.blog.value);
     const loadingState = useSelector((selector: RootState) => selector.blog.status);
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        setShouldRedirect(blogId === undefined);
-        if (blogId !== undefined) {
-            dispatch(fetchBlog(blogId));
+        setShouldRedirect(title === undefined);
+        if (title !== undefined) {
+            dispatch(fetchBlog(title));
         }
-    }, [dispatch, blogId]);
+    }, [dispatch, title]);
 
     if (shouldRedirect) {
         return  <Navigate to="/"></Navigate>

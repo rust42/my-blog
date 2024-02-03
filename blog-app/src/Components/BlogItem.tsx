@@ -18,13 +18,13 @@ const BlogItem: React.FC<Props> = (props) => {
             </div>
             <div className="col">
                 <h3 className="title mb-1">
-                    <Link to={`blog/${blog.identifier}`} className="text-link">{blog.title}</Link></h3>
+                    <Link to={`blog/${blog.identifier?.split(' ').join('+')}`} className="text-link">{blog.title}</Link></h3>
                 <div className="meta mb-1">
                     <span className="date">Published {moment(blog.date, "YYYY-MM-DD").fromNow()}</span>
                 </div>
                 <div className="intro">{blog.detail}
                 </div>
-                <Link to={`blog/${blog.identifier}`} className="text-link">
+                <Link to={`blog/${blog.identifier?.split(' ').join('+')}`} className="text-link">
                 Read
                 more →
                 </Link>

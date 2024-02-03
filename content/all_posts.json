@@ -4,7 +4,7 @@
         "image": "images/image17.png",
         "date": "2024-01-30",
         "author": "Sandeep",
-        "identifier": "post_7",
+        "identifier": "How I Built My Blog with AWS, Kotlin, and React",
         "detail": "The foundation of my blogging platform is anchored in AWS Serverless Application Model (SAM), a model that has dramatically simplified the way we define and deploy serverless applications on AWS"
     },
     {
@@ -12,7 +12,7 @@
         "image": "images/image15.png",
         "date": "2024-01-22",
         "author": "Sandeep",
-        "identifier": "post_6",
+        "identifier": "A Young Geographer's Journey: My Nephew's Fascination with the World",
         "detail": "This love for geography has sparked an interest in languages and cultures. He's fascinated by the diverse ways people live around the world, often asking questions about different traditions and customs."
     },
     {
@@ -20,7 +20,7 @@
         "image": "images/image13.png",
         "date": "2024-01-21",
         "author": "Sandeep",
-        "identifier": "post_5",
+        "identifier": "A New Chapter: Welcoming 2024 with Open Arms",
         "detail": "The completion of my studies is not just an academic milestone; it's the beginning of a new phase of life..."
     },
     {
@@ -28,7 +28,7 @@
         "image": "images/image7.png",
         "date": "2024-01-19",
         "author": "Sandeep",
-        "identifier": "post_4",
+        "identifier": "iOS Debugging with LLDB",
         "detail": "LLDB is a powerful debugger that supports C, C++, and Objective-C. As a command-line interface tool, it offers precise control over debugging. Key commands include setting breakpoints, stepping through code, and inspecting program states."
     },
     {
@@ -36,7 +36,7 @@
         "image": "images/image9.png",
         "date": "2024-01-18",
         "author": "Sandeep",
-        "identifier": "post_3",
+        "identifier": "Transitioning from Mobile Development to DevOps: A Personal Journey",
         "detail": "DevOps, a blend of development and operations, intrigued me with its promise of unifying software development..."
     },
     {
@@ -44,7 +44,7 @@
         "image": "images/image4.png",
         "date": "2024-01-15",
         "author": "Sandeep",
-        "identifier": "post_2",
+        "identifier": "AWS SAM and Lambda",
         "detail": "AWS SAM is a framework for building serverless applications. It extends AWS CloudFormation to provide a simplified way of defining the Amazon API Gateway APIs, AWS Lambda functions..."
     },
     {
@@ -52,7 +52,7 @@
         "image": "images/image1.png",
         "date": "2024-01-12",
         "author": "Sandeep",
-        "identifier": "post_1",
+        "identifier": "A gentle introduction to Kubernetes",
         "detail": "Kubernetes is an open-source platform designed to automate deploying, scaling, and operating application containers..."
     }
 ]
