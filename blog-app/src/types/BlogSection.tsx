@@ -8,7 +8,6 @@ interface ContentCode {
     lang?: string
 }
 
-
 interface ContentImage {
     image: string,
     caption?: string
@@ -32,9 +31,7 @@ const isCode = (content: any): content is ContentCode => {
     return 'code' in content;
 }
 
-
 export default BlogSection;
-
 export { isCode, isDescription, isImage };
 export type { ContentCode, ContentDescription, ContentImage };
 
