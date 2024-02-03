@@ -8,13 +8,13 @@
       "title": "The Spark of Curiosity",
       "contents": [
         {
-          "id": 1,
-          "description": "It all began with a simple world map. I watched as his eyes lit up with curiosity, tracing the contours of continents and oceans. It wasn't long before he could point out countries and recite their capitals, a feat that left us all amazed."
-        },
-        {
           "id": 2,
           "image": "images/image14.png",
           "caption": ""
+        },
+        {
+          "id": 1,
+          "description": "It all began with a simple world map. I watched as his eyes lit up with curiosity, tracing the contours of continents and oceans. It wasn't long before he could point out countries and recite their capitals, a feat that left us all amazed."
         }
       ]
     },
@@ -22,13 +22,13 @@
       "title": "A Colorful Array of Flags",
       "contents": [
         {
-          "id": 3,
-          "description": "His bedroom is a kaleidoscope of colors, adorned with flags from around the world. Each flag tells a story, and he knows them all by heart – the stars, stripes, crosses, and crescents, each holding a special place in his imagination."
-        },
-        {
           "id": 4,
           "image": "images/image16.png",
           "caption": ""
+        },
+        {
+          "id": 3,
+          "description": "His bedroom is a kaleidoscope of colors, adorned with flags from around the world. Each flag tells a story, and he knows them all by heart – the stars, stripes, crosses, and crescents, each holding a special place in his imagination."
         }
       ]
     },
@@ -54,13 +54,13 @@
       "title": "The Digital Explorer",
       "contents": [
         {
-          "id": 7,
-          "description": "With the aid of apps and online resources, he has turned into a digital explorer. He spends hours on interactive geography websites, further expanding his already impressive knowledge."
-        },
-        {
           "id": 8,
           "image": "images/image15.png",
           "caption": ""
+        },
+        {
+          "id": 7,
+          "description": "With the aid of apps and online resources, he has turned into a digital explorer. He spends hours on interactive geography websites, further expanding his already impressive knowledge."
         }
       ]
     },

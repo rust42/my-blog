@@ -46,13 +46,13 @@
       "title": "Exploring the SAM Template",
       "contents": [
         {
-          "id": 6,
-          "description": "The SAM template is a YAML file that defines your serverless application's resources. It specifies the Lambda function, triggers, and other AWS resources."
-        },
-        {
           "id": 7,
           "image": "images/image4.png",
           "caption": ""
+        },
+        {
+          "id": 6,
+          "description": "The SAM template is a YAML file that defines your serverless application's resources. It specifies the Lambda function, triggers, and other AWS resources."
         },
         {
           "id": 8,
@@ -111,13 +111,13 @@
       "title": "Environment Variables and Configuration",
       "contents": [
         {
-          "id": 15,
-          "description": "Managing environment variables in SAM is essential for passing operational parameters to your Lambda functions."
-        },
-        {
           "id": 16,
           "image": "images/image5.png",
           "caption": ""
+        },
+        {
+          "id": 15,
+          "description": "Managing environment variables in SAM is essential for passing operational parameters to your Lambda functions."
         },
         {
           "id": 17,

@@ -8,13 +8,13 @@
       "title": "Introduction to iOS Debugging",
       "contents": [
         {
-          "id": 1,
-          "description": "In this guide, we delve into the critical aspect of iOS development - debugging. Effective debugging is key to identifying and resolving issues in iOS applications. We'll explore how LLDB, integrated into Xcode, is an indispensable tool for developers to diagnose and fix problems efficiently."
-        },
-        {
           "id": 2,
           "image": "images/image6.png",
           "caption": ""
+        },
+        {
+          "id": 1,
+          "description": "In this guide, we delve into the critical aspect of iOS development - debugging. Effective debugging is key to identifying and resolving issues in iOS applications. We'll explore how LLDB, integrated into Xcode, is an indispensable tool for developers to diagnose and fix problems efficiently."
         }
       ]
     },
@@ -46,13 +46,13 @@
       "title": "Breakpoints: Your First Step in Debugging",
       "contents": [
         {
-          "id": 6,
-          "description": "Breakpoints are fundamental in debugging. They allow developers to pause the execution of code at specific points. In Xcode, you can easily set breakpoints by clicking on the gutter next to the code line. Once a breakpoint hits, you can inspect variables and step through your code."
-        },
-        {
           "id": 7,
           "image": "images/image7.png",
           "caption": ""
+        },
+        {
+          "id": 6,
+          "description": "Breakpoints are fundamental in debugging. They allow developers to pause the execution of code at specific points. In Xcode, you can easily set breakpoints by clicking on the gutter next to the code line. Once a breakpoint hits, you can inspect variables and step through your code."
         },
         {
           "id": 8,
@@ -126,13 +126,13 @@
       "title": "Debugging Memory Issues",
       "contents": [
         {
-          "id": 17,
-          "description": "Memory issues, such as leaks and retain cycles, can be challenging to identify. LLDB provides tools to analyze memory usage and track down leaks. Understanding these tools is key to building efficient and reliable iOS applications."
-        },
-        {
           "id": 18,
           "image": "images/image8.png",
           "caption": ""
+        },
+        {
+          "id": 17,
+          "description": "Memory issues, such as leaks and retain cycles, can be challenging to identify. LLDB provides tools to analyze memory usage and track down leaks. Understanding these tools is key to building efficient and reliable iOS applications."
         },
         {
           "id": 19,

@@ -52,13 +52,13 @@
       "title": "Deployments and Managing Pods",
       "contents": [
         {
-          "id": 7,
-          "description": "Deployments in Kubernetes provide declarative updates to Pods and ReplicaSets. You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate."
-        },
-        {
           "id": 8,
           "image": "images/image2.png",
           "caption": ""
+        },
+        {
+          "id": 7,
+          "description": "Deployments in Kubernetes provide declarative updates to Pods and ReplicaSets. You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate."
         },
         {
           "id": 9,

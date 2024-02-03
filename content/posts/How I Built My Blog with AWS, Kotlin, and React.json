@@ -120,6 +120,12 @@
         "title": "Inside My Blog's AWS Setup",
         "contents": [
           {
+            "id": 19,
+            "image": "images/image18.jpg",
+            "caption": "The Setup of My AWS Blog",
+            "modalTitle": "The Setup of My AWS Blog"
+          },
+          {
             "id": 16,
             "description": "Building my blog meant putting together a system that works smoothly. I chose AWS because it offers everything I need: a place to keep my blog's files, a way to handle visits to my site without any server, and a simple method to manage data. Here's how I set it all up."
           },
@@ -130,12 +136,6 @@
           {
             "id": 18,
             "description": "To show you what I mean, here's a picture of how my blog is set up on AWS. It shows which parts talk to each other and how they fit together."
-          },
-          {
-            "id": 19,
-            "image": "images/image18.jpg",
-            "caption": "The Setup of My AWS Blog",
-            "modalTitle": "The Setup of My AWS Blog"
           },
           {
             "id": 20,
