@@ -80,9 +80,8 @@ const Content: React.FC<Props> = (props: Props) => {
 
     if (isDescription(content)) {
 
-        return <div className='ml-2'>
-            {content.title && <h5 className="title mb-2">{content.title}</h5>}
-
+        return <div>
+            {content.title && <h5 className="title">{content.title}</h5>}
             <Markdown>{content.description}</Markdown>
          </div>
     }
