@@ -35,3 +35,11 @@ jobs:
         working-directory: ./
         run: sh sync.sh
 
+      - name: Invalidate Cloudfront 
+        run: |
+         distribution_id=$(aws cloudfront list-distributions --query "DistributionList.Items[?contains(Aliases.Items[], 'blog.k6sandeep.com')].Id" --output text)
+         aws cloudfront create-invalidation --distribution-id $distribution_id --paths "/*"
+
+
+
+

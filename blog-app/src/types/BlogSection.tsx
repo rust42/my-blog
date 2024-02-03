@@ -1,4 +1,5 @@
 interface ContentDescription {
+    title?: string
     description: string
 }
 
