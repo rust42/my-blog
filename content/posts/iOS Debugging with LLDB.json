@@ -1,0 +1,170 @@
+{
+  "title": "iOS Debugging with LLDB",
+  "author": "Sandeep Koirala",
+  "date": "2024-01-19",
+  "intro": "Debugging is an art, and in the realm of iOS development, LLDB is the artist's most valued tool. This blog post is a deep dive into the intricacies of debugging iOS applications using LLDB, the default debugger in Xcode. Whether you're troubleshooting a pesky bug or fine-tuning your app to perfection, understanding the power of LLDB is crucial. From setting breakpoints to inspecting the runtime, we'll explore the techniques that can transform a daunting debugging session into a smooth and efficient process",
+  "sections": [
+    {
+      "title": "Introduction to iOS Debugging",
+      "contents": [
+        {
+          "id": 1,
+          "description": "In this guide, we delve into the critical aspect of iOS development - debugging. Effective debugging is key to identifying and resolving issues in iOS applications. We'll explore how LLDB, integrated into Xcode, is an indispensable tool for developers to diagnose and fix problems efficiently."
+        },
+        {
+          "id": 2,
+          "image": "images/image6.png",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Setting Up Your Environment for Debugging",
+      "contents": [
+        {
+          "id": 3,
+          "description": "To begin, it's crucial to set up your debugging environment properly. This involves configuring Xcode to use LLDB, understanding the debugging panel, and familiarizing yourself with the debugger's interface. Proper setup ensures that you can start debugging your iOS applications with ease."
+        }
+      ]
+    },
+    {
+      "title": "Understanding LLDB Basics",
+      "contents": [
+        {
+          "id": 4,
+          "description": "LLDB is a powerful debugger that supports C, C++, and Objective-C. As a command-line interface tool, it offers precise control over debugging. Key commands include setting breakpoints, stepping through code, and inspecting program states."
+        },
+        {
+          "id": 5,
+          "code": "(lldb) breakpoint set --name viewDidLoad\n(lldb) run",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Breakpoints: Your First Step in Debugging",
+      "contents": [
+        {
+          "id": 6,
+          "description": "Breakpoints are fundamental in debugging. They allow developers to pause the execution of code at specific points. In Xcode, you can easily set breakpoints by clicking on the gutter next to the code line. Once a breakpoint hits, you can inspect variables and step through your code."
+        },
+        {
+          "id": 7,
+          "image": "images/image7.png",
+          "caption": ""
+        },
+        {
+          "id": 8,
+          "code": "func myFunction() {\n    // Set breakpoint here\n}",
+          "lang": "swift",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Navigating Through Code with LLDB",
+      "contents": [
+        {
+          "id": 9,
+          "description": "Navigating through code is essential for understanding the flow of execution. LLDB provides commands to 'step into' functions, 'step over' lines of code, and 'step out' of functions. This granular control helps in tracing the program's execution path and isolating issues."
+        },
+        {
+          "id": 10,
+          "code": "(lldb) step in\n(lldb) step out\n(lldb) next",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Inspecting Variables and Expressions",
+      "contents": [
+        {
+          "id": 11,
+          "description": "One of the most powerful aspects of LLDB is the ability to inspect and modify variables at runtime. The 'print' command displays a variable's value, and 'expression' allows you to change values on the fly, which is invaluable for testing different scenarios without restarting the session."
+        },
+        {
+          "id": 12,
+          "code": "(lldb) print myVariable\n(lldb) expression myVariable = newValue",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Advanced Breakpoint Techniques",
+      "contents": [
+        {
+          "id": 13,
+          "description": "LLDB offers advanced breakpoint features, like conditional breakpoints that trigger only when a certain condition is met, and watchpoints that monitor changes to data. These advanced techniques are crucial for debugging complex issues."
+        },
+        {
+          "id": 14,
+          "code": "(lldb) breakpoint set --name viewDidLoad --condition \"someVariable == expectedValue\"\n(lldb) watchpoint set variable myVariable",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Understanding and Analyzing Stack Traces",
+      "contents": [
+        {
+          "id": 15,
+          "description": "Stack traces are vital for diagnosing issues, particularly crashes. They provide a record of the function calls that led to the current state. Learning to read stack traces enables you to quickly identify the source of a problem."
+        },
+        {
+          "id": 16,
+          "code": "(lldb) bt\n# Output: Stack trace of the current thread",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Debugging Memory Issues",
+      "contents": [
+        {
+          "id": 17,
+          "description": "Memory issues, such as leaks and retain cycles, can be challenging to identify. LLDB provides tools to analyze memory usage and track down leaks. Understanding these tools is key to building efficient and reliable iOS applications."
+        },
+        {
+          "id": 18,
+          "image": "images/image8.png",
+          "caption": ""
+        },
+        {
+          "id": 19,
+          "code": "(lldb) memory read --size 4 --format x --count 10 0x1000",
+          "lang": "shell",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "LLDB Scripts and Automation",
+      "contents": [
+        {
+          "id": 20,
+          "description": "LLDB's scripting capabilities, particularly using Python, allow for automating repetitive tasks and creating custom debugging commands. These scripts can significantly speed up the debugging process and offer customized solutions to complex debugging scenarios."
+        },
+        {
+          "id": 21,
+          "code": "def print_view_hierarchy(debugger, command, result, internal_dict):\n    debugger.HandleCommand('expr -l objc++ -O -- [[UIWindow keyWindow] recursiveDescription]')",
+          "lang": "python",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "contents": [
+        {
+          "id": 22,
+          "description": "Mastering LLDB for iOS debugging is a journey of continuous learning. This guide has covered the fundamentals and some advanced aspects, but there is much more to explore. Regular practice and exploring new features and techniques will enhance your debugging skills in iOS development."
+        }
+      ]
+    }
+  ]
+}
