@@ -1,5 +1,5 @@
 FROM alpine
-RUN apk add --update nodejs
+RUN apk add -y --update nodejs npm
 WORKDIR app
 COPY ./package.json .
 RUN npm install
