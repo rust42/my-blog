@@ -2,7 +2,9 @@ FROM --platform=linux/amd64 node:18-alpine3.18
 WORKDIR app
 COPY ./package.json .
 RUN npm install
-COPY ./src ./public ./tsconfig.json ./
+COPY src ./
+COPY public ./
+COPY ./tsconfig.json .
 RUN npm run build-release
 RUN npm install -g serve
 EXPOSE 8080
