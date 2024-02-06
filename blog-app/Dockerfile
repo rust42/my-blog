@@ -1,8 +1,9 @@
-FROM --platform=linux/amd64 node:latest
+FROM --platform=linux/amd64 node:18-alpine3.18
 WORKDIR app
-COPY package.json .
+COPY ./blog-app/package.json .
 RUN npm install
-COPY . ./
+COPY ./blog-app/src ./
+COPY ./blog-app/public ./
 RUN npm run build-release
 RUN npm install -g serve
 EXPOSE 8080
